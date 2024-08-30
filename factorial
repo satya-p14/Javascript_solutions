@@ -1,0 +1,27 @@
+function factorial(n) { 
+    let ans = 1; 
+    if(n === 0) return 1;
+    for (let i = 2; i <= n; i++) 
+        ans = ans * i; 
+    return ans; 
+}
+
+
+function factorial(n) { 
+    if (n === 0) { 
+        return 1; 
+    } else { 
+        return n * factorial( n - 1 ); 
+    } 
+} 
+
+function factorial(n, cache = []) {
+    if (n === 0) {
+        return 1;
+    }
+    if (cache[n] !== undefined) {
+        return cache[n];
+    }
+    cache[n] = n * factorial(n - 1, cache);
+    return cache[n];
+} 
